@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex后台布局</title>
+    <meta name="theme-color" content="#ffffff" />
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        background-color: #fbfbfbda;
+      }
+      /* * {
+        border: 1px solid black;
+      } */
+      .flex {
+        display: flex;
+      }
+      .baise {
+        background-color: white;
+        box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+          rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+      }
+      .flex1 {
+        flex: 1;
+      }
+      .column {
+        flex-direction: column;
+      }
+      .mg8 {
+        margin: 8px;
+      }
+      .mgr8 {
+        margin-right: 8px;
+      }
+      .mgt8 {
+        margin-top: 8px;
+      }
+      /* 阴影 */
+      .yinYing {
+        box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+          rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+      }
+
+      .lieBiaoXiang {
+        height: 160px;
+      }
+      .daoHang {
+        padding: 10px 20px;
+        border-bottom: 1px solid rgb(201, 201, 201);
+        font-size: 14px;
+        color: #666;
+      }
+      /* 当屏幕宽度小于600px时要改变的css */
+      @media (max-width: 600px) {
+        /* 小屏幕上取消侧边栏，后面学js时会教怎么弹出 */
+        .ceBian {
+          display: none;
+        }
+        /* 内容栏和数据栏flex方向改为竖向 */
+        .neiRong {
+          flex-direction: column;
+        }
+        .shuJuQu {
+          flex-direction: column;
+        }
+        /* 右区加左外边距 */
+        .youQu {
+          margin-left: 8px;
+        }
+        /* 数据块外边距，大小改为自动宽高 */
+        .shuJu {
+          margin: 0 0 8px;
+          flex: auto;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="flex">
+    <!--侧边栏-->
+    <div style="width: 200px; z-index: 2" class="baise flex column ceBian">
+      <!--头像栏-->
+      <div
+        style="
+          padding: 10px;
+          align-items: center;
+          justify-content: center;
+          border-bottom: 1px solid #999;
+        "
+        class="flex"
+      >
+        <img alt="logo" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fsafe-img.xhscdn.com%2Fbw1%2Fc1e3770b-cac2-4127-9e0a-d654f15050e9%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&refer=http%3A%2F%2Fsafe-img.xhscdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1698156372&t=61690597639eb1a4d9b6ce9d08f54bcb" width="40px" height="40px" />
+        <div style="margin-left: 10px">神秘CAT</div>
+      </div>
+      <!--导航栏-->
+      <div class="flex1 flex column">
+        <!--导航条-->
+        <div class="daoHang">导航栏</div>
+        <div class="daoHang">导航栏</div>
+        <div class="daoHang">导航栏</div>
+        <div class="daoHang">导航栏</div>
+        <div class="daoHang">导航栏</div>
+      </div>
+    </div>
+    <!--主区域-->
+    <div class="flex1 flex column">
+      <!--头部栏-->
+      <div style="height: 60px; z-index: 1" class="baise yinYing"></div>
+      <!--内容区-->
+      <div style="overflow: auto" class="flex1 flex neiRong">
+        <!--左边-->
+        <div style="flex: 3" class="flex column mg8">
+          <!--数据区-->
+          <div class="flex shuJuQu">
+            <!--四个小块显示重点数据-->
+            <div style="height: 100px" class="flex1 baise mgr8 shuju"></div>
+            <div style="height: 100px" class="flex1 baise mgr8 shuju"></div>
+            <div style="height: 100px" class="flex1 baise mgr8 shuju"></div>
+            <div style="height: 100px" class="flex1 baise shuJu"></div>
+          </div>
+
+          <!--列表区，列表数据可以无限增加-->
+          <div class="flex column">
+            <!--列表项-->
+            <div style="height: 160px" class="baise mgt8 "></div>
+            <div style="height: 160px" class="baise mgt8 "></div>
+            <div style="height: 160px" class="baise mgt8 "></div>
+            <div style="height: 160px" class="baise mgt8 yinYing"></div>
+            <div style="height: 160px" class="baise mgt8 yinYing"></div>
+            <div style="height: 160px" class="baise mgt8 yinYing"></div>
+            <div style="height: 160px" class="baise mgt8 yinYing"></div>
+          </div>
+        </div>
+        <!--右边-->
+        <div style="flex: 1" class="flex column youQu">
+          <!--提示区-->
+          <div style="height: 150px" class="baise mgt8"></div>
+          <!--消息区-->
+          <div style="height: 300px" class="baise mgt8"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
